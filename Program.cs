@@ -8,11 +8,18 @@ namespace CryptographyTest
     {
         static void Main(string[] args)
         {
-            var text1 = hashPassword("Hello world - Jesper vi tester lige password", true);
-            Console.WriteLine(text1);
+            var stringText = "Hello world - Jesper vi tester lige password";
 
-            var text2 = hashPassword("Hello world - Jesper vi tester lige password", false);
-            Console.WriteLine(text2);
+            var text1 = hashPassword(stringText, true);
+            Console.WriteLine("Text 1: " + text1);
+
+            var text2 = hashPassword(stringText, false);
+            Console.WriteLine("Text 2: " + text2);
+
+            Random r = new Random();
+            var rText = r.Next(5, 200).ToString();
+            var text3 = hashPassword(rText + stringText, true);
+            Console.WriteLine("Text 3: " + rText + " - " + text3);
 
         }
 
